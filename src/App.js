@@ -9,21 +9,14 @@ import Navigation from "./routes/navigation";
 import Shop from "./routes/shop";
 import Checkout from "./routes/checkout";
 
-import { onAuthStateChangedListener, createUserDocumentFromAuth } from "./utils/firebase";
-import { setCurrentUser } from "./store/user/actions";
+import { checkUserSession } from "./store/user/actions";
 
 const App = () => {
   const dispatch = useDispatch();
   console.log("App rendered");
-  useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user && user.uid) {
-        createUserDocumentFromAuth(user.uid, user.displayName, user.email);
-      }
-      dispatch(setCurrentUser(user));
-    });
 
-    return () => unsubscribe;
+  useEffect(() => {
+    dispatch(checkUserSession());
   }, []);
 
   return (
