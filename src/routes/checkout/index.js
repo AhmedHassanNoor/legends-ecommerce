@@ -4,11 +4,12 @@ import CheckoutItem from "../../components/checkout-item";
 
 import { CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from "./styles";
 import { useSelector } from "react-redux";
-import { isCartItemsSelector, isCartTotalSelector } from "../../store/cart/selector";
+import { cartItemsSelector, cartTotalSelector } from "../../store/cart/selector";
+import PaymentForm from "../../components/payment-form";
 
 const Checkout = () => {
-  const cartItems = useSelector(isCartItemsSelector);
-  const cartTotal = useSelector(isCartTotalSelector);
+  const cartItems = useSelector(cartItemsSelector);
+  const cartTotal = useSelector(cartTotalSelector);
 
   return (
     <CheckoutContainer>
@@ -32,7 +33,8 @@ const Checkout = () => {
       {cartItems.map((cartItem) => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
-      <Total>TOTAL: ${cartTotal}</Total>
+      <Total>TOTAL: R{cartTotal}</Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };

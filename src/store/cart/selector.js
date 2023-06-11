@@ -8,6 +8,6 @@ export const isCartOpenSelector = createSelector([cartReducer], (cart) => cart.i
 
 export const isCartCountSelector = createSelector([cartReducer], (cart) => cart.cartCount);
 
-export const isCartTotalSelector = createSelector([cartReducer], (cart) => cart.cartTotal);
+export const cartTotalSelector = createSelector([cartReducer], (cart) => cart.cartTotal);
 
-export const isCartItemsSelector = createSelector([cartReducer], (cart) => cart.cartItems);
+export const cartItemsSelector = createSelector([cartReducer], (cart) => cart.cartItems);

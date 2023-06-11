@@ -2,7 +2,7 @@ import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./styles.
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import { ReactComponent as Logo } from "./../../assets/crown.svg";
+import { ReactComponent as Logo } from "./../../assets/legends.svg";
 
 import { userSignOutUserStart } from "../../store/user/actions.js";
 import CartDropdown from "../../components/cart-dropdown";
@@ -20,7 +20,7 @@ const Navigation = () => {
     <React.Fragment>
       <NavigationContainer>
         <LogoContainer to="/">
-          <Logo />
+          <Logo stroke="#ae9100" fill="#ae9100" />
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>

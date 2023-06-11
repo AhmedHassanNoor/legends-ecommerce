@@ -1,4 +1,4 @@
-import { BaseButton, GoogleButton, InvertedButton } from "./styles";
+import { BaseButton, LoadingSpinner, GoogleButton, InvertedButton } from "./styles";
 
 export const BUTTON_TYPE_CLASSES = {
   base: "base",
@@ -6,19 +6,23 @@ export const BUTTON_TYPE_CLASSES = {
   inverted: "inverted",
 };
 
-const Button = ({ buttonType, children, ...otherProps }) => {
+const Button = ({ buttonType, children, isLoading = false, ...otherProps }) => {
   switch (buttonType) {
     case BUTTON_TYPE_CLASSES.base:
-      return <BaseButton {...otherProps}>{children}</BaseButton>;
+      return <BaseButton {...otherProps}>{isLoading ? <LoadingSpinner /> : children}</BaseButton>;
 
     case BUTTON_TYPE_CLASSES.google:
-      return <GoogleButton {...otherProps}>{children}</GoogleButton>;
+      return <GoogleButton {...otherProps}>{isLoading ? <LoadingSpinner /> : children}</GoogleButton>;
 
     case BUTTON_TYPE_CLASSES.inverted:
-      return <InvertedButton {...otherProps}>{children}</InvertedButton>;
+      return <InvertedButton {...otherProps}> {isLoading ? <LoadingSpinner /> : children}</InvertedButton>;
 
     default:
-      return <BaseButton {...otherProps}>{children}</BaseButton>;
+      return (
+        <BaseButton disabled={isLoading} {...otherProps} type="submit">
+          {isLoading ? <LoadingSpinner /> : children}
+        </BaseButton>
+      );
   }
 };
 

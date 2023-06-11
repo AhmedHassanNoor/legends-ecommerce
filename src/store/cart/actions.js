@@ -1,5 +1,5 @@
 import { CART_ACTION_TYPES } from "./types";
-import { isCartOpenSelector, isCartItemsSelector } from "./selector";
+import { isCartOpenSelector, cartItemsSelector } from "./selector";
 import { createAction } from "../../utils/reducer";
 import { useSelector } from "react-redux";
 
