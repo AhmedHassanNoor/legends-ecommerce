@@ -10,13 +10,13 @@ import {
 } from "./actions";
 
 import {
-  getCurrentUser,
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
-  signOutUser,
-  signInWithGooglePopup,
   createAuthUserWithEmailAndPassword,
-} from "../../utils/firebase";
+  createUserDocumentFromAuth,
+  getCurrentUser,
+  signInAuthUserWithEmailAndPassword,
+  signInWithGooglePopup,
+  signOutUser,
+} from "../../utils/firebase/user";
 
 /*
  * USER SESSION GENERATORS

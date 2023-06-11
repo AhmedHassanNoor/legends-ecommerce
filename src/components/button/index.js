@@ -6,24 +6,20 @@ export const BUTTON_TYPE_CLASSES = {
   inverted: "inverted",
 };
 
+const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
+  ({
+    [BUTTON_TYPE_CLASSES.base]: BaseButton,
+    [BUTTON_TYPE_CLASSES.google]: GoogleButton,
+    [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
+  }[buttonType]);
+
 const Button = ({ buttonType, children, isLoading = false, ...otherProps }) => {
-  switch (buttonType) {
-    case BUTTON_TYPE_CLASSES.base:
-      return <BaseButton {...otherProps}>{isLoading ? <LoadingSpinner /> : children}</BaseButton>;
-
-    case BUTTON_TYPE_CLASSES.google:
-      return <GoogleButton {...otherProps}>{isLoading ? <LoadingSpinner /> : children}</GoogleButton>;
-
-    case BUTTON_TYPE_CLASSES.inverted:
-      return <InvertedButton {...otherProps}> {isLoading ? <LoadingSpinner /> : children}</InvertedButton>;
-
-    default:
-      return (
-        <BaseButton disabled={isLoading} {...otherProps} type="submit">
-          {isLoading ? <LoadingSpinner /> : children}
-        </BaseButton>
-      );
-  }
+  const CustomButton = getButton(buttonType);
+  return (
+    <CustomButton disabled={isLoading} {...otherProps}>
+      {isLoading ? <LoadingSpinner /> : children}
+    </CustomButton>
+  );
 };
 
 export default Button;

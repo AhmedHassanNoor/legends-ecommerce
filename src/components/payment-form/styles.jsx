@@ -11,7 +11,13 @@ export const PaymentFormContainer = styled.div`
 
 export const FormContainer = styled.form`
   height: 100px;
-  min-width: 500px;
+  width: 100%;
+`;
+
+export const TestCardText = styled.p`
+  font-size: 10px;
+  font-style: italic;
+  color: gray;
 `;
 
 export const PaymentButton = styled(Button)`

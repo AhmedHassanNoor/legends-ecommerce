@@ -1,7 +1,5 @@
 import { CART_ACTION_TYPES } from "./types";
-import { isCartOpenSelector, cartItemsSelector } from "./selector";
 import { createAction } from "../../utils/reducer";
-import { useSelector } from "react-redux";
 
 /*
  *
@@ -59,7 +57,7 @@ const clearCartItem = (cartItemToClear, cartItems) =>
  *
  */
 
-export const setIsCartOpen = (isCartOpen) => createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, !isCartOpen);
+export const setIsCartOpen = (payload) => createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, payload);
 
 export const addItemToCart = (productToAdd, cartItems) => {
   const newCartItems = addCartItem(productToAdd, cartItems);

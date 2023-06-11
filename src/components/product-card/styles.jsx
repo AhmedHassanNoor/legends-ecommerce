@@ -5,6 +5,7 @@ export const ProductCartContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 350px;
+  margin-bottom: 30px;
   align-items: center;
   position: relative;
 

@@ -15,7 +15,9 @@ export const CartDropdownContainer = styled.div`
   right: 40px;
   z-index: 5;
 
-  ${BaseButton}, ${GoogleButton} ${InvertedButton} {
+  ${BaseButton},
+  ${GoogleButton},
+  ${InvertedButton} {
     margin-top: auto;
   }
 `;
